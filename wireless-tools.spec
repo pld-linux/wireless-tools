@@ -2,12 +2,13 @@ Summary:	Wireless ethernet configuration tools
 Summary(pl):	Narzêdzia konfiguracji sieci bezprzedowowej
 Name:		wireless-tools
 Version:	22
-Release:	0.pre1
+Release:	1.pre1
 License:	GPL
 Group:		Networking/Admin
 Group(de):	Netzwerkwesen/Administration
 Group(pl):	Sieciowe/Administacyjne
 Source0:	http://www.hpl.hp.com/personal/Jean_Tourrilhes/Linux/wireless_tools.%{version}.pre1.tar.gz
+Source1:	wireless.init
 Patch0:		%{name}-opt.patch
 URL:		http://www.hpl.hp.com/personal/Jean_Tourrilhes/Linux/Tools.html
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -33,7 +34,10 @@ urz±dzeñ.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_sbindir},%{_mandir}/man8}
+install -d $RPM_BUILD_ROOT{%{_sbindir},%{_mandir}/man8} \
+	$RPM_BUILD_ROOT%{_sysconfdir}/rc.d/init.d
+
+install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/rc.d/init.d/wavelan
 
 %{__make} install \
 	INSTALL_DIR=$RPM_BUILD_ROOT%{_sbindir}
@@ -45,8 +49,17 @@ gzip -9nf READ* INSTA* PCM*
 %clean
 rm -rf $RPM_BUILD_ROOT
 
+%post
+/sbin/chkconfig --add wavelan
+
+%preun
+if [ "$1" = "0" ]; then
+	/sbin/chkconfig --del wavelan
+fi
+
 %files
 %defattr(644,root,root,755)
 %doc *.gz
 %attr(755,root,root) %{_sbindir}/*
+%attr(754,root,root) %{_sysconfdir}/rc.d/init.d/wavelan
 %{_mandir}/man?/*
