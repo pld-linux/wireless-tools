@@ -12,16 +12,15 @@ URL:		http://www.hpl.hp.com/personal/Jean_Tourrilhes/Linux/Tools.html
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-This package contain the Wireless tools, used to manipulate
-the Wireless Extensions. The Wireless Extension is an interface
-allowing you to set Wireless LAN specific parameters and get the
-specific stats for wireless networking equipment.
+This package contain the Wireless tools, used to manipulate the
+Wireless Extensions. The Wireless Extension is an interface allowing
+you to set Wireless LAN specific parameters and get the specific stats
+for wireless networking equipment.
 
 %description -l pl
 Narzêdzie u¿ywane do manipulacji Rozszerzeniami Bezprzewodowymi.
 Rozszerzenia Bezprzewodowe to interfejs pozwalaj±cy na ustawianie
-parametrów i uzyskiwanie statystyk na temat bezprzewodowych
-urz±dzeñ.
+parametrów i uzyskiwanie statystyk na temat bezprzewodowych urz±dzeñ.
 
 %prep
 %setup  -q -n wireless_tools.%{version}
@@ -39,7 +38,7 @@ install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/rc.d/init.d/wavelan
 
 %{__make} install \
 	INSTALL_DIR=$RPM_BUILD_ROOT%{_sbindir}
-	
+
 install *.8 $RPM_BUILD_ROOT%{_mandir}/man8
 
 gzip -9nf READ* INSTA* PCM*
