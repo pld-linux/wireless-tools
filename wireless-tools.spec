@@ -68,7 +68,7 @@ Wireless Extension library (static library).
 iblioteka rozszerzeñ bezprzewodowych (biblioteka statyczna).
 
 %prep
-%setup  -q -n wireless_tools.%{version}
+%setup -q -n wireless_tools.%{version}
 
 %build
 %{__make} \
@@ -78,7 +78,7 @@ iblioteka rozszerzeñ bezprzewodowych (biblioteka statyczna).
 sed -i -e 's#.*BUILD_STATIC = y#BUILD_STATIC = y#g' Makefile
 %{__make} libiw.a \
 	CC="%{__cc}" OPT="%{rpmcflags}" \
-        KERNEL_SRC=%{_kernelsrcdir}
+	KERNEL_SRC=%{_kernelsrcdir}
 
 
 %install
