@@ -2,12 +2,12 @@ Summary:	Wireless ethernet configuration tools
 Summary(pl):	Narzêdzia do konfiguracji sieci bezprzewodowej
 Summary(pt_BR):	Ferramentas para redes sem fio
 Name:		wireless-tools
-Version:	26
-Release:	1
+Version:	27
+Release:	0.1
 License:	GPL v2
 Group:		Networking/Admin
-Source0:	http://pcmcia-cs.sourceforge.net/ftp/contrib/wireless_tools.%{version}.tar.gz
-# Source0-md5:	a037f5c19ab8f3a89acb09e8cfd22d5b
+Source0:	http://www.hpl.hp.com/personal/Jean_Tourrilhes/Linux/wireless_tools.%{version}.pre7.tar.gz
+# Source0-md5:	a4f41b6e67817965d8e25c247218d1a6
 URL:		http://www.hpl.hp.com/personal/Jean_Tourrilhes/Linux/Tools.html
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -69,14 +69,21 @@ iblioteka rozszerzeñ bezprzewodowych (biblioteka statyczna).
 %setup  -q -n wireless_tools.%{version}
 
 %build
-%{__make} CC="%{__cc}" OPT="%{rpmcflags}" \
+%{__make} \
+	CC="%{__cc}" OPT="%{rpmcflags}" \
 	KERNEL_SRC=%{_kernelsrcdir}
+
+sed -i -e 's#.*BUILD_STATIC = y#BUILD_STATIC = y#g' Makefile
+%{__make} libiw.a \
+	CC="%{__cc}" OPT="%{rpmcflags}" \
+        KERNEL_SRC=%{_kernelsrcdir}
+
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_sbindir},%{_libdir},%{_includedir},%{_mandir}/man8}
 
-%{__make} install \
+%{__make} install install-dynamic install-static \
 	INSTALL_DIR=$RPM_BUILD_ROOT%{_sbindir} \
 	INSTALL_LIB=$RPM_BUILD_ROOT%{_libdir} \
 	INSTALL_INC=$RPM_BUILD_ROOT%{_includedir} \
