@@ -1,12 +1,13 @@
+%define		_pre	pre9
 Summary:	Wireless ethernet configuration tools
 Summary(pl):	Narzêdzia do konfiguracji sieci bezprzewodowej
 Summary(pt_BR):	Ferramentas para redes sem fio
 Name:		wireless-tools
 Version:	27
-Release:	0.1
+Release:	0.%{_pre}.1
 License:	GPL v2
 Group:		Networking/Admin
-Source0:	http://www.hpl.hp.com/personal/Jean_Tourrilhes/Linux/wireless_tools.%{version}.pre9.tar.gz
+Source0:	http://www.hpl.hp.com/personal/Jean_Tourrilhes/Linux/wireless_tools.%{version}.%{_pre}.tar.gz
 # Source0-md5:	48b0d1bd16450c4f568286763a93f340
 URL:		http://www.hpl.hp.com/personal/Jean_Tourrilhes/Linux/Tools.html
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
