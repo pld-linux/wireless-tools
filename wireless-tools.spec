@@ -6,8 +6,8 @@ Version:	27
 Release:	0.1
 License:	GPL v2
 Group:		Networking/Admin
-Source0:	http://www.hpl.hp.com/personal/Jean_Tourrilhes/Linux/wireless_tools.%{version}.pre7.tar.gz
-# Source0-md5:	a4f41b6e67817965d8e25c247218d1a6
+Source0:	http://www.hpl.hp.com/personal/Jean_Tourrilhes/Linux/wireless_tools.%{version}.pre9.tar.gz
+# Source0-md5:	48b0d1bd16450c4f568286763a93f340
 URL:		http://www.hpl.hp.com/personal/Jean_Tourrilhes/Linux/Tools.html
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
