@@ -69,7 +69,8 @@ iblioteka rozszerzeñ bezprzewodowych (biblioteka statyczna).
 %setup  -q -n wireless_tools.%{version}
 
 %build
-%{__make} CC="%{__cc}" OPT="%{rpmcflags}"
+%{__make} CC="%{__cc}" OPT="%{rpmcflags}" \
+	KERNEL_SRC=%{_kernelsrcdir}
 
 %install
 rm -rf $RPM_BUILD_ROOT
