@@ -1,0 +1,34 @@
+diff -urN wireless_tools.22.org/Makefile wireless_tools.22/Makefile
+--- wireless_tools.22.org/Makefile	Thu May 10 16:40:02 2001
++++ wireless_tools.22/Makefile	Thu May 10 16:40:33 2001
+@@ -7,18 +7,18 @@
+ 
+ # Installation directory. By default, go in local.
+ # Distributions should probably use /usr/sbin, but they probably know better...
+-INSTALL_DIR= /usr/local/sbin
++INSTALL_DIR= /usr/sbin
+ 
+ # This is our header selection. Try to hide the mess and the misery :-(
+ # Please choose *only one* of the define...
+ 
+ # Kernel headers 2.4.X + Glibc 2.2 - Mandrake 8.0, Debian 2.3
+-#HEADERS= -DGLIBC22_HEADERS
++HEADERS= -DGLIBC22_HEADERS
+ 
+ # Kernel headers 2.0.X + Glibc 2.0 - Debian 2.0, RH 5
+ # Kernel headers 2.2.X + Glibc 2.1 - Debian 2.2, RH 6.1
+ # Kernel headers 2.4.X + Glibc 2.1 - Debian 2.2 upgraded, RH 7.0
+-HEADERS= -DGLIBC_HEADERS
++#HEADERS= -DGLIBC_HEADERS
+ 
+ # Kernel headers 2.2.X + Glibc 2.0 - Debian 2.1
+ #HEADERS= -DKLUDGE_HEADERS
+@@ -40,7 +40,7 @@
+ 
+ RM_CMD = $(RM) *.BAK *.bak *.o ,* *~ *.a
+ 
+-CFLAGS=-O2 -Wall $(HEADERS) $(WE_HEADER)
++CFLAGS=$(OPT) -Wall $(HEADERS) $(WE_HEADER)
+ 
+ LIBS=-lm
+ 
