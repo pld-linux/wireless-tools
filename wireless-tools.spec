@@ -7,6 +7,7 @@ Release:	1
 License:	GPL v2
 Group:		Networking/Admin
 Source0:	http://pcmcia-cs.sourceforge.net/ftp/contrib/wireless_tools.%{version}.tar.gz
+# Source0-md5:	d900b537c3b5279e33266e13387f2a44
 URL:		http://www.hpl.hp.com/personal/Jean_Tourrilhes/Linux/Tools.html
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
