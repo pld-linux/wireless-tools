@@ -15,7 +15,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		_sbindir	/sbin
 
 %description
-This package contain the Wireless tools, used to manipulate the
+This package contains the Wireless tools, used to manipulate the
 Wireless Extensions. The Wireless Extension is an interface allowing
 you to set Wireless LAN specific parameters and get the specific stats
 for wireless networking equipment.
