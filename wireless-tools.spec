@@ -1,13 +1,14 @@
 Summary:	Wireless ethernet configuration tools
 Summary(pl):	Narzêdzia do konfiguracji sieci bezprzewodowej
+Summary(pt_BR):	Ferramentas para redes sem fio
 Name:		wireless-tools
 Version:	24
 Release:	1
-License:	GPL
+License:	GPL v2
 Group:		Networking/Admin
 Source0:	http://pcmcia-cs.sourceforge.net/ftp/contrib/wireless_tools.%{version}.tar.gz
 Source1:	wireless.init
-#Patch0:		%{name}-opt.patch
+#Patch0:	%{name}-opt.patch
 URL:		http://www.hpl.hp.com/personal/Jean_Tourrilhes/Linux/Tools.html
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -21,6 +22,12 @@ for wireless networking equipment.
 Narzêdzie u¿ywane do manipulacji Rozszerzeniami Bezprzewodowymi.
 Rozszerzenia Bezprzewodowe to interfejs pozwalaj±cy na ustawianie
 parametrów i uzyskiwanie statystyk na temat bezprzewodowych urz±dzeñ.
+
+%description -l pt_BR
+Este pacote contém ferramentas para redes sem fio, utilizadas para
+manipular as wireless extensions. Wireless extensions é uma interface
+que permite que você modifique parâmetros específicos para redes sem
+fio e verificar estatísticas sobre estas.
 
 %prep
 %setup  -q -n wireless_tools.%{version}
