@@ -6,7 +6,7 @@ Release:	1.pre1
 License:	GPL
 Group:		Networking/Admin
 Group(de):	Netzwerkwesen/Administration
-Group(pl):	Sieciowe/Administacyjne
+Group(pl):	Sieciowe/Administracyjne
 Source0:	http://www.hpl.hp.com/personal/Jean_Tourrilhes/Linux/wireless_tools.%{version}.pre1.tar.gz
 Source1:	wireless.init
 Patch0:		%{name}-opt.patch
