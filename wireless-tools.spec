@@ -1,13 +1,13 @@
 Summary:	Wireless ethernet configuration tools
 Summary(pl):	Narzêdzia konfiguracji sieci bezprzedowowej
 Name:		wireless-tools
-Version:	22
-Release:	1.pre1
+Version:	24
+Release:	1
 License:	GPL
 Group:		Networking/Admin
-Source0:	http://www.hpl.hp.com/personal/Jean_Tourrilhes/Linux/wireless_tools.%{version}.pre1.tar.gz
+Source0:	http://pcmcia-cs.sourceforge.net/ftp/contrib/wireless_tools.%{version}.tar.gz
 Source1:	wireless.init
-Patch0:		%{name}-opt.patch
+#Patch0:		%{name}-opt.patch
 URL:		http://www.hpl.hp.com/personal/Jean_Tourrilhes/Linux/Tools.html
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -24,22 +24,23 @@ parametrów i uzyskiwanie statystyk na temat bezprzewodowych urz±dzeñ.
 
 %prep
 %setup  -q -n wireless_tools.%{version}
-%patch0 -p1
+# %patch0 -p1
 
 %build
 %{__make} OPT="%{rpmcflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_sbindir},%{_mandir}/man8} \
+install -d $RPM_BUILD_ROOT{%{_sbindir},%{_libdir},%{_includedir},%{_mandir}/man8} \
 	$RPM_BUILD_ROOT%{_sysconfdir}/rc.d/init.d
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/rc.d/init.d/wavelan
 
 %{__make} install \
-	INSTALL_DIR=$RPM_BUILD_ROOT%{_sbindir}
-
-install *.8 $RPM_BUILD_ROOT%{_mandir}/man8
+	INSTALL_DIR=$RPM_BUILD_ROOT%{_sbindir} \
+	INSTALL_LIB=$RPM_BUILD_ROOT%{_libdir} \
+	INSTALL_INC=$RPM_BUILD_ROOT%{_includedir} \
+	INSTALL_MAN=$RPM_BUILD_ROOT%{_mandir} \
 
 gzip -9nf READ* INSTA* PCM*
 
