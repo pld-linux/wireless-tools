@@ -47,7 +47,7 @@ Biblioteka rozszerzeñ bezprzewodowych.
 Summary:	Wireless Extension library (development files)
 Summary(pl):	Biblioteka rozszerzeñ bezprzewodowych (pliki developerskie)
 Group:		Development/Libraries
-Requires:	libiw = %{version}
+Requires:	libiw = %{epoch}:%{version}-%{release}
 
 %description -n libiw-devel
 Wireless Extension library (development files).
@@ -59,7 +59,7 @@ Biblioteka rozszerzeñ bezprzewodowych (pliki developerskie).
 Summary:	Wireless Extension library (static library)
 Summary(pl):	Biblioteka rozszerzeñ bezprzewodowych (biblioteka statyczna)
 Group:		Development/Libraries
-Requires:	libiw-devel = %{version}
+Requires:	libiw-devel = %{epoch}:%{version}-%{release}
 
 %description -n libiw-static
 Wireless Extension library (static library).
