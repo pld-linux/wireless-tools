@@ -1,5 +1,5 @@
 Summary:	Wireless ethernet configuration tools
-Summary(pl):	Narzêdzia konfiguracji sieci bezprzedowowej
+Summary(pl):	Narzêdzia do konfiguracji sieci bezprzewodowej
 Name:		wireless-tools
 Version:	24
 Release:	1
@@ -40,7 +40,7 @@ install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/rc.d/init.d/wavelan
 	INSTALL_DIR=$RPM_BUILD_ROOT%{_sbindir} \
 	INSTALL_LIB=$RPM_BUILD_ROOT%{_libdir} \
 	INSTALL_INC=$RPM_BUILD_ROOT%{_includedir} \
-	INSTALL_MAN=$RPM_BUILD_ROOT%{_mandir} \
+	INSTALL_MAN=$RPM_BUILD_ROOT%{_mandir}
 
 gzip -9nf READ* INSTA* PCM*
 
