@@ -83,14 +83,6 @@ install -d $RPM_BUILD_ROOT{%{_sbindir},%{_libdir},%{_includedir},%{_mandir}/man8
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post
-/sbin/chkconfig --add wavelan
-
-%preun
-if [ "$1" = "0" ]; then
-	/sbin/chkconfig --del wavelan
-fi
-
 %post -n libiw -p /sbin/ldconfig
 %postun -n libiw -p /sbin/ldconfig
 
