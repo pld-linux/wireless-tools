@@ -1,0 +1,120 @@
+diff -urN wireless_tools.28.orig/iwlib.h wireless_tools.28/iwlib.h
+--- wireless_tools.28.orig/iwlib.h	2005-07-13 01:22:50.272896080 +0200
++++ wireless_tools.28/iwlib.h	2005-07-13 01:26:36.781461544 +0200
+@@ -74,7 +74,7 @@
+ 
+ /* Those 3 headers were previously included in wireless.h */
+ #include <linux/types.h>		/* for "caddr_t" et al		*/
+-#include <linux/socket.h>		/* for "struct sockaddr" et al	*/
++#include <sys/socket.h>		/* for "struct sockaddr" et al	*/
+ #include <linux/if.h>			/* for IFNAMSIZ and co... */
+ 
+ /* Private copy of Wireless extensions (in this directoty) */
+diff -urN wireless_tools.28.orig/wireless.10.h wireless_tools.28/wireless.10.h
+--- wireless_tools.28.orig/wireless.10.h	2005-07-13 01:22:50.272896080 +0200
++++ wireless_tools.28/wireless.10.h	2005-07-13 01:26:36.844451968 +0200
+@@ -51,7 +51,7 @@
+ /***************************** INCLUDES *****************************/
+ 
+ #include <linux/types.h>		/* for "caddr_t" et al		*/
+-#include <linux/socket.h>		/* for "struct sockaddr" et al	*/
++#include <sys/socket.h>		/* for "struct sockaddr" et al	*/
+ #include <linux/if.h>			/* for IFNAMSIZ and co... */
+ 
+ /**************************** CONSTANTS ****************************/
+diff -urN wireless_tools.28.orig/wireless.11.h wireless_tools.28/wireless.11.h
+--- wireless_tools.28.orig/wireless.11.h	2005-07-13 01:22:50.272896080 +0200
++++ wireless_tools.28/wireless.11.h	2005-07-13 01:26:36.860449536 +0200
+@@ -51,7 +51,7 @@
+ /***************************** INCLUDES *****************************/
+ 
+ #include <linux/types.h>		/* for "caddr_t" et al		*/
+-#include <linux/socket.h>		/* for "struct sockaddr" et al	*/
++#include <sys/socket.h>		/* for "struct sockaddr" et al	*/
+ #include <linux/if.h>			/* for IFNAMSIZ and co... */
+ 
+ /**************************** CONSTANTS ****************************/
+diff -urN wireless_tools.28.orig/wireless.12.h wireless_tools.28/wireless.12.h
+--- wireless_tools.28.orig/wireless.12.h	2005-07-13 01:22:50.272896080 +0200
++++ wireless_tools.28/wireless.12.h	2005-07-13 01:26:36.869448168 +0200
+@@ -51,7 +51,7 @@
+ /***************************** INCLUDES *****************************/
+ 
+ #include <linux/types.h>		/* for "caddr_t" et al		*/
+-#include <linux/socket.h>		/* for "struct sockaddr" et al	*/
++#include <sys/socket.h>		/* for "struct sockaddr" et al	*/
+ #include <linux/if.h>			/* for IFNAMSIZ and co... */
+ 
+ /**************************** CONSTANTS ****************************/
+diff -urN wireless_tools.28.orig/wireless.13.h wireless_tools.28/wireless.13.h
+--- wireless_tools.28.orig/wireless.13.h	2005-07-13 01:22:50.272896080 +0200
++++ wireless_tools.28/wireless.13.h	2005-07-13 01:26:36.877446952 +0200
+@@ -65,7 +65,7 @@
+ /***************************** INCLUDES *****************************/
+ 
+ #include <linux/types.h>		/* for "caddr_t" et al		*/
+-#include <linux/socket.h>		/* for "struct sockaddr" et al	*/
++#include <sys/socket.h>		/* for "struct sockaddr" et al	*/
+ #include <linux/if.h>			/* for IFNAMSIZ and co... */
+ 
+ /***************************** VERSION *****************************/
+diff -urN wireless_tools.28.orig/wireless.14.h wireless_tools.28/wireless.14.h
+--- wireless_tools.28.orig/wireless.14.h	2005-07-13 01:22:50.272896080 +0200
++++ wireless_tools.28/wireless.14.h	2005-07-13 01:26:36.886445584 +0200
+@@ -70,7 +70,7 @@
+ /***************************** INCLUDES *****************************/
+ 
+ #include <linux/types.h>		/* for "caddr_t" et al		*/
+-#include <linux/socket.h>		/* for "struct sockaddr" et al	*/
++#include <sys/socket.h>		/* for "struct sockaddr" et al	*/
+ #include <linux/if.h>			/* for IFNAMSIZ and co... */
+ 
+ /***************************** VERSION *****************************/
+diff -urN wireless_tools.28.orig/wireless.15.h wireless_tools.28/wireless.15.h
+--- wireless_tools.28.orig/wireless.15.h	2005-07-13 01:22:50.272896080 +0200
++++ wireless_tools.28/wireless.15.h	2005-07-13 01:26:36.895444216 +0200
+@@ -70,7 +70,7 @@
+ /***************************** INCLUDES *****************************/
+ 
+ #include <linux/types.h>		/* for "caddr_t" et al		*/
+-#include <linux/socket.h>		/* for "struct sockaddr" et al	*/
++#include <sys/socket.h>		/* for "struct sockaddr" et al	*/
+ #include <linux/if.h>			/* for IFNAMSIZ and co... */
+ 
+ /***************************** VERSION *****************************/
+diff -urN wireless_tools.28.orig/wireless.16.h wireless_tools.28/wireless.16.h
+--- wireless_tools.28.orig/wireless.16.h	2005-07-13 01:22:50.273895928 +0200
++++ wireless_tools.28/wireless.16.h	2005-07-13 01:26:36.905442696 +0200
+@@ -72,7 +72,7 @@
+ /* To minimise problems in user space, I might remove those headers
+  * at some point. Jean II */
+ #include <linux/types.h>		/* for "caddr_t" et al		*/
+-#include <linux/socket.h>		/* for "struct sockaddr" et al	*/
++#include <sys/socket.h>		/* for "struct sockaddr" et al	*/
+ #include <linux/if.h>			/* for IFNAMSIZ and co... */
+ 
+ /***************************** VERSION *****************************/
+diff -urN wireless_tools.28.orig/wireless.17.h wireless_tools.28/wireless.17.h
+--- wireless_tools.28.orig/wireless.17.h	2005-07-13 01:22:50.273895928 +0200
++++ wireless_tools.28/wireless.17.h	2005-07-13 01:26:36.915441176 +0200
+@@ -72,7 +72,7 @@
+ /* To minimise problems in user space, I might remove those headers
+  * at some point. Jean II */
+ #include <linux/types.h>		/* for "caddr_t" et al		*/
+-#include <linux/socket.h>		/* for "struct sockaddr" et al	*/
++#include <sys/socket.h>		/* for "struct sockaddr" et al	*/
+ #include <linux/if.h>			/* for IFNAMSIZ and co... */
+ 
+ /***************************** VERSION *****************************/
+diff -urN wireless_tools.28.orig/wireless.18.h wireless_tools.28/wireless.18.h
+--- wireless_tools.28.orig/wireless.18.h	2005-07-13 01:22:50.273895928 +0200
++++ wireless_tools.28/wireless.18.h	2005-07-13 01:26:36.927439352 +0200
+@@ -72,7 +72,7 @@
+ /* To minimise problems in user space, I might remove those headers
+  * at some point. Jean II */
+ #include <linux/types.h>		/* for "caddr_t" et al		*/
+-#include <linux/socket.h>		/* for "struct sockaddr" et al	*/
++#include <sys/socket.h>		/* for "struct sockaddr" et al	*/
+ #include <linux/if.h>			/* for IFNAMSIZ and co... */
+ 
+ /***************************** VERSION *****************************/
