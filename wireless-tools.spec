@@ -3,13 +3,14 @@ Summary(pl):	Narzêdzia do konfiguracji sieci bezprzewodowej
 Summary(pt_BR):	Ferramentas para redes sem fio
 Name:		wireless-tools
 Version:	28
-%define	pre	pre6
+%define	pre	pre8
 Release:	0.%{pre}.1
 Epoch:		1
 License:	GPL v2
 Group:		Networking/Admin
 Source0:	http://www.hpl.hp.com/personal/Jean_Tourrilhes/Linux/wireless_tools.%{version}.%{pre}.tar.gz
-# Source0-md5:	3ad1da3b17dff963eba32f0b79401253
+# Source0-md5:	ea32365b13618242d307d7846f958b4c
+Patch0:		%{name}-llh.patch
 URL:		http://www.hpl.hp.com/personal/Jean_Tourrilhes/Linux/Tools.html
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -69,6 +70,7 @@ iblioteka rozszerzeñ bezprzewodowych (biblioteka statyczna).
 
 %prep
 %setup -q -n wireless_tools.%{version}
+%patch0 -p1
 
 %build
 %{__make} \
