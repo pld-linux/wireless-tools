@@ -11,6 +11,7 @@ Group:		Networking/Admin
 Source0:	http://www.hpl.hp.com/personal/Jean_Tourrilhes/Linux/wireless_tools.%{version}.%{pre}.tar.gz
 # Source0-md5:	ea32365b13618242d307d7846f958b4c
 Patch0:		%{name}-llh.patch
+Patch1:		%{name}-optflags.patch
 URL:		http://www.hpl.hp.com/personal/Jean_Tourrilhes/Linux/Tools.html
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -71,17 +72,19 @@ iblioteka rozszerzeñ bezprzewodowych (biblioteka statyczna).
 %prep
 %setup -q -n wireless_tools.%{version}
 %patch0 -p1
+%patch1 -p1
 
 %build
 %{__make} \
 	CC="%{__cc}" OPT="%{rpmcflags}" \
-	KERNEL_SRC=%{_kernelsrcdir}
+	KERNEL_SRC=%{_kernelsrcdir} \
+	OPTFLAGS="%{rpmcflags}"
 
 sed -i -e 's#.*BUILD_STATIC = y#BUILD_STATIC = y#g' Makefile
 %{__make} libiw.a \
 	CC="%{__cc}" OPT="%{rpmcflags}" \
-	KERNEL_SRC=%{_kernelsrcdir}
-
+	KERNEL_SRC=%{_kernelsrcdir} \
+	OPTFLAGS="%{rpmcflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
