@@ -1,0 +1,12 @@
+diff -aurN wireless_tools.28.orig/Makefile wireless_tools.28/Makefile
+--- wireless_tools.28.orig/Makefile	2005-05-31 18:36:30.000000000 +0200
++++ wireless_tools.28/Makefile	2005-08-03 10:48:33.000000000 +0200
+@@ -92,7 +92,7 @@
+ endif
+ 
+ # Other flags
+-CFLAGS=-Os -W -Wall -Wstrict-prototypes -Wmissing-prototypes -Wshadow \
++CFLAGS=$(OPTFLAGS) -W -Wall -Wstrict-prototypes -Wmissing-prototypes -Wshadow \
+ 	-Wpointer-arith -Wcast-qual -Winline -I.
+ #CFLAGS=-O2 -W -Wall -Wstrict-prototypes -I.
+ DEPFLAGS=-MMD
