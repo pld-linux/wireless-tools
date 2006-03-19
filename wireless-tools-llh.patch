@@ -61,8 +61,8 @@
  
  /* Private copy of Wireless extensions (in this directoty) */
  #include "wireless.h"
---- wireless_tools.28/wireless.h.orig	2006-03-20 00:02:13.000000000 +0100
-+++ wireless_tools.28/wireless.h	2006-03-20 00:04:46.000000000 +0100
+--- wireless_tools.28/wireless.19.h.orig	2006-03-20 00:02:13.000000000 +0100
++++ wireless_tools.28/wireless.19.h	2006-03-20 00:04:46.000000000 +0100
 @@ -641,7 +641,7 @@
   */
  struct	iw_point
