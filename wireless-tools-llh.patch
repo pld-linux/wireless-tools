@@ -72,3 +72,25 @@
    __u16		length;		/* number of fields or size in bytes */
    __u16		flags;		/* Optional params */
  };
+--- wireless_tools.28/wireless.20.h.orig	2006-05-27 18:51:20.000000000 +0200
++++ wireless_tools.28/wireless.20.h	2006-05-27 18:51:29.000000000 +0200
+@@ -645,7 +645,7 @@
+  */
+ struct	iw_point
+ {
+-  void __user	*pointer;	/* Pointer to the data  (in user space) */
++  void		*pointer;	/* Pointer to the data  (in user space) */
+   __u16		length;		/* number of fields or size in bytes */
+   __u16		flags;		/* Optional params */
+ };
+--- wireless_tools.28/wireless.18.h.orig	2006-05-27 18:50:55.000000000 +0200
++++ wireless_tools.28/wireless.18.h	2006-05-27 18:51:08.000000000 +0200
+@@ -626,7 +626,7 @@
+  */
+ struct	iw_point
+ {
+-  void __user	*pointer;	/* Pointer to the data  (in user space) */
++  void		*pointer;	/* Pointer to the data  (in user space) */
+   __u16		length;		/* number of fields or size in bytes */
+   __u16		flags;		/* Optional params */
+ };
