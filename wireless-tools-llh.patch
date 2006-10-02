@@ -94,3 +94,14 @@
    __u16		length;		/* number of fields or size in bytes */
    __u16		flags;		/* Optional params */
  };
+--- wireless_tools.29/wireless.21.h.orig	2006-03-25 01:26:36.000000000 +0100
++++ wireless_tools.29/wireless.21.h	2006-10-02 16:37:49.583457000 +0200
+@@ -680,7 +680,7 @@
+  */
+ struct	iw_point
+ {
+-  void __user	*pointer;	/* Pointer to the data  (in user space) */
++  void		*pointer;	/* Pointer to the data  (in user space) */
+   __u16		length;		/* number of fields or size in bytes */
+   __u16		flags;		/* Optional params */
+ };
