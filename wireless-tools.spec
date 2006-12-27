@@ -71,7 +71,7 @@ Requires:	libiw-devel = %{epoch}:%{version}-%{release}
 Wireless Extension library (static library).
 
 %description -n libiw-static -l pl
-iblioteka rozszerzeñ bezprzewodowych (biblioteka statyczna).
+Biblioteka rozszerzeñ bezprzewodowych (biblioteka statyczna).
 
 %prep
 %setup -q -n wireless_tools.%{version}
@@ -80,13 +80,15 @@ iblioteka rozszerzeñ bezprzewodowych (biblioteka statyczna).
 
 %build
 %{__make} \
-	CC="%{__cc}" OPT="%{rpmcflags}" \
+	CC="%{__cc}" \
+	OPT="%{rpmcflags}" \
 	KERNEL_SRC=%{_kernelsrcdir} \
 	OPTFLAGS="%{rpmcflags}"
 
 sed -i -e 's#.*BUILD_STATIC = y#BUILD_STATIC = y#g' Makefile
 %{__make} libiw.a \
-	CC="%{__cc}" OPT="%{rpmcflags}" \
+	CC="%{__cc}" \
+	OPT="%{rpmcflags}" \
 	KERNEL_SRC=%{_kernelsrcdir} \
 	OPTFLAGS="%{rpmcflags}"
 
@@ -114,13 +116,13 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -n libiw
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/lib*.so.*
+%attr(755,root,root) %{_libdir}/libiw.so.*
 
 %files -n libiw-devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/lib*.so
+%attr(755,root,root) %{_libdir}/libiw.so
 %{_includedir}/*.h
 
 %files -n libiw-static
 %defattr(644,root,root,755)
-%{_libdir}/lib*.a
+%{_libdir}/libiw.a
