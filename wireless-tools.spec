@@ -1,6 +1,6 @@
 Summary:	Wireless ethernet configuration tools
-Summary(pl):	Narzêdzia do konfiguracji sieci bezprzewodowej
-Summary(pt_BR):	Ferramentas para redes sem fio
+Summary(pl.UTF-8):   NarzÄ™dzia do konfiguracji sieci bezprzewodowej
+Summary(pt_BR.UTF-8):   Ferramentas para redes sem fio
 Name:		wireless-tools
 Version:	29
 #define		_pre	%{nil}
@@ -27,51 +27,51 @@ Wireless Extensions. The Wireless Extension is an interface allowing
 you to set Wireless LAN specific parameters and get the specific stats
 for wireless networking equipment.
 
-%description -l pl
-Narzêdzie u¿ywane do manipulacji Rozszerzeniami Bezprzewodowymi.
-Rozszerzenia Bezprzewodowe to interfejs pozwalaj±cy na ustawianie
-parametrów i uzyskiwanie statystyk na temat bezprzewodowych urz±dzeñ.
+%description -l pl.UTF-8
+NarzÄ™dzie uÅ¼ywane do manipulacji Rozszerzeniami Bezprzewodowymi.
+Rozszerzenia Bezprzewodowe to interfejs pozwalajÄ…cy na ustawianie
+parametrÃ³w i uzyskiwanie statystyk na temat bezprzewodowych urzÄ…dzeÅ„.
 
-%description -l pt_BR
-Este pacote contém ferramentas para redes sem fio, utilizadas para
-manipular as wireless extensions. Wireless extensions é uma interface
-que permite que você modifique parâmetros específicos para redes sem
-fio e verificar estatísticas sobre estas.
+%description -l pt_BR.UTF-8
+Este pacote contÃ©m ferramentas para redes sem fio, utilizadas para
+manipular as wireless extensions. Wireless extensions Ã© uma interface
+que permite que vocÃª modifique parÃ¢metros especÃ­ficos para redes sem
+fio e verificar estatÃ­sticas sobre estas.
 
 %package -n libiw
 Summary:	Wireless Extension library
-Summary(pl):	Biblioteka rozszerzeñ bezprzewodowych
+Summary(pl.UTF-8):   Biblioteka rozszerzeÅ„ bezprzewodowych
 Group:		Libraries
 
 %description -n libiw
 Wireless Extension library.
 
-%description -n libiw -l pl
-Biblioteka rozszerzeñ bezprzewodowych.
+%description -n libiw -l pl.UTF-8
+Biblioteka rozszerzeÅ„ bezprzewodowych.
 
 %package -n libiw-devel
 Summary:	Wireless Extension library (development files)
-Summary(pl):	Biblioteka rozszerzeñ bezprzewodowych (pliki developerskie)
+Summary(pl.UTF-8):   Biblioteka rozszerzeÅ„ bezprzewodowych (pliki developerskie)
 Group:		Development/Libraries
 Requires:	libiw = %{epoch}:%{version}-%{release}
 
 %description -n libiw-devel
 Wireless Extension library (development files).
 
-%description -n libiw-devel -l pl
-Biblioteka rozszerzeñ bezprzewodowych (pliki developerskie).
+%description -n libiw-devel -l pl.UTF-8
+Biblioteka rozszerzeÅ„ bezprzewodowych (pliki developerskie).
 
 %package -n libiw-static
 Summary:	Wireless Extension library (static library)
-Summary(pl):	Biblioteka rozszerzeñ bezprzewodowych (biblioteka statyczna)
+Summary(pl.UTF-8):   Biblioteka rozszerzeÅ„ bezprzewodowych (biblioteka statyczna)
 Group:		Development/Libraries
 Requires:	libiw-devel = %{epoch}:%{version}-%{release}
 
 %description -n libiw-static
 Wireless Extension library (static library).
 
-%description -n libiw-static -l pl
-Biblioteka rozszerzeñ bezprzewodowych (biblioteka statyczna).
+%description -n libiw-static -l pl.UTF-8
+Biblioteka rozszerzeÅ„ bezprzewodowych (biblioteka statyczna).
 
 %prep
 %setup -q -n wireless_tools.%{version}
