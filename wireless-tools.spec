@@ -1,6 +1,6 @@
 Summary:	Wireless ethernet configuration tools
-Summary(pl.UTF-8):   Narzędzia do konfiguracji sieci bezprzewodowej
-Summary(pt_BR.UTF-8):   Ferramentas para redes sem fio
+Summary(pl.UTF-8):	Narzędzia do konfiguracji sieci bezprzewodowej
+Summary(pt_BR.UTF-8):	Ferramentas para redes sem fio
 Name:		wireless-tools
 Version:	29
 #define		_pre	%{nil}
@@ -40,7 +40,7 @@ fio e verificar estatísticas sobre estas.
 
 %package -n libiw
 Summary:	Wireless Extension library
-Summary(pl.UTF-8):   Biblioteka rozszerzeń bezprzewodowych
+Summary(pl.UTF-8):	Biblioteka rozszerzeń bezprzewodowych
 Group:		Libraries
 
 %description -n libiw
@@ -51,7 +51,7 @@ Biblioteka rozszerzeń bezprzewodowych.
 
 %package -n libiw-devel
 Summary:	Wireless Extension library (development files)
-Summary(pl.UTF-8):   Biblioteka rozszerzeń bezprzewodowych (pliki developerskie)
+Summary(pl.UTF-8):	Biblioteka rozszerzeń bezprzewodowych (pliki developerskie)
 Group:		Development/Libraries
 Requires:	libiw = %{epoch}:%{version}-%{release}
 
@@ -63,7 +63,7 @@ Biblioteka rozszerzeń bezprzewodowych (pliki developerskie).
 
 %package -n libiw-static
 Summary:	Wireless Extension library (static library)
-Summary(pl.UTF-8):   Biblioteka rozszerzeń bezprzewodowych (biblioteka statyczna)
+Summary(pl.UTF-8):	Biblioteka rozszerzeń bezprzewodowych (biblioteka statyczna)
 Group:		Development/Libraries
 Requires:	libiw-devel = %{epoch}:%{version}-%{release}
 
