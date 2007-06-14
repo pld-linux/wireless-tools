@@ -83,15 +83,10 @@ sed -i -e 's#__user##g' iwlib.h wireless.22.h
 %build
 %{__make} \
 	CC="%{__cc}" \
-	OPT="%{rpmcflags}" \
-	KERNEL_SRC=%{_kernelsrcdir} \
 	OPTFLAGS="%{rpmcflags}"
 
-sed -i -e 's#.*BUILD_STATIC = y#BUILD_STATIC = y#g' Makefile
 %{__make} libiw.a \
 	CC="%{__cc}" \
-	OPT="%{rpmcflags}" \
-	KERNEL_SRC=%{_kernelsrcdir} \
 	OPTFLAGS="%{rpmcflags}"
 
 %install
@@ -104,17 +99,27 @@ install -d $RPM_BUILD_ROOT{%{_sbindir},%{_libdir},%{_includedir},%{_mandir}/man8
 	INSTALL_INC=$RPM_BUILD_ROOT%{_includedir} \
 	INSTALL_MAN=$RPM_BUILD_ROOT%{_mandir}
 
+install -d $RPM_BUILD_ROOT%{_mandir}/{cs,fr}/man{5,7,8}
+install cs/*.5 $RPM_BUILD_ROOT%{_mandir}/cs/man5
+install cs/*.7 $RPM_BUILD_ROOT%{_mandir}/cs/man7
+install cs/*.8 $RPM_BUILD_ROOT%{_mandir}/cs/man8
+install fr/*.5 $RPM_BUILD_ROOT%{_mandir}/fr/man5
+install fr/*.7 $RPM_BUILD_ROOT%{_mandir}/fr/man7
+install fr/*.8 $RPM_BUILD_ROOT%{_mandir}/fr/man8
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post -n libiw -p /sbin/ldconfig
-%postun -n libiw -p /sbin/ldconfig
+%post	-n libiw -p /sbin/ldconfig
+%postun	-n libiw -p /sbin/ldconfig
 
 %files
 %defattr(644,root,root,755)
 %doc READ* INSTA* PCM*
 %attr(755,root,root) %{_sbindir}/*
-%{_mandir}/man?/*
+%{_mandir}/man[578]/*
+%lang(cs) %{_mandir}/cs/man[578]/*
+%lang(fr) %{_mandir}/fr/man[578]/*
 
 %files -n libiw
 %defattr(644,root,root,755)
