@@ -4,14 +4,14 @@ Summary(pt_BR.UTF-8):	Ferramentas para redes sem fio
 Name:		wireless-tools
 Version:	29
 #define		_pre	%{nil}
-%define		_pre	.pre10
+%define		_pre	.pre21
 #Release:	1
 Release:	0%{_pre}.1
 Epoch:		1
 License:	GPL v2
 Group:		Networking/Admin
 Source0:	http://www.hpl.hp.com/personal/Jean_Tourrilhes/Linux/wireless_tools.%{version}%{_pre}.tar.gz
-# Source0-md5:	d04cddba74f3d93a13a298dc1b905cc4
+# Source0-md5:	953774d6a34050bae4ef3bfa731f6653
 Patch0:		%{name}-llh.patch
 Patch1:		%{name}-optflags.patch
 URL:		http://www.hpl.hp.com/personal/Jean_Tourrilhes/Linux/Tools.html
@@ -77,6 +77,8 @@ Biblioteka rozszerzeń bezprzewodowych (biblioteka statyczna).
 %setup -q -n wireless_tools.%{version}
 %patch0 -p1
 %patch1 -p1
+
+sed -i -e 's#__user##g' iwlib.h wireless.22.h
 
 %build
 %{__make} \
