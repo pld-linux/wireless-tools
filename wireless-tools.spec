@@ -6,7 +6,7 @@ Version:	29
 #define		_pre	%{nil}
 %define		_pre	.pre22
 #Release:	1
-Release:	0%{_pre}.0.1
+Release:	0%{_pre}.1
 Epoch:		1
 License:	GPL v2
 Group:		Networking/Admin
