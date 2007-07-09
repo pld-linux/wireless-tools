@@ -1,45 +1,9 @@
 --- wireless_tools.28/iwlib.h.orig	2005-12-06 02:18:06.000000000 +0100
 +++ wireless_tools.28/iwlib.h	2006-03-20 00:03:54.000000000 +0100
-@@ -32,60 +32,15 @@
- #include <sys/time.h>		/* struct timeval */
- #include <unistd.h>
- 
--/* This is our header selection. Try to hide the mess and the misery :-(
-- * Don't look, you would go blind ;-) */
--
--#ifndef LINUX_VERSION_CODE
--#include <linux/version.h>
--#endif
--
--/* Kernel headers 2.4.X + Glibc 2.2 - Mandrake 8.0, Debian 2.3, RH 7.1
-- * Kernel headers 2.2.X + Glibc 2.2 - Slackware 8.0 */
--#if defined(__GLIBC__) \
--    && __GLIBC__ == 2 \
--    && __GLIBC_MINOR__ >= 2 \
--    && LINUX_VERSION_CODE >= KERNEL_VERSION(2,2,0)
--#define HEADERS_GENERIC
--
--/* Kernel headers 2.4.X + Glibc 2.1 - Debian 2.2 upgraded, RH 7.0
-- * Kernel headers 2.2.X + Glibc 2.1 - Debian 2.2, RH 6.1 */
--#elif defined(__GLIBC__) \
--      && __GLIBC__ == 2 \
--      && __GLIBC_MINOR__ == 1 \
--      && LINUX_VERSION_CODE >= KERNEL_VERSION(2,2,0)
--#define HEADERS_GENERIC
--#define HEADERS_KERNEL
--
--/* Unsupported combination */
--#else
--#error "Your kernel/libc combination is not supported"
--#endif
--
--#ifdef HEADERS_GENERIC 
--/* Proposed by Dr. Michael Rietz <rietz@mail.amps.de>, 27.3.2 */
- #include <net/if_arp.h>		/* For ARPHRD_ETHER */
+@@ -32,12 +32,6 @@
  #include <sys/socket.h>		/* For AF_INET & struct sockaddr */
  #include <netinet/in.h>         /* For struct sockaddr_in */
  #include <netinet/if_ether.h>
--#endif /* HEADERS_GENERIC */    
 -
 -/* Fixup to be able to include kernel includes in userspace.
 - * Basically, kill the sparse annotations... Jean II */
@@ -49,18 +13,6 @@
  
  #include <linux/types.h>		/* for "caddr_t" et al		*/
  
--#ifdef HEADERS_KERNEL
--/* Traditionally we have used kernel headers, included in wireless.h */
--#include <linux/socket.h>		/* for "struct sockaddr" et al	*/
--#include <linux/if.h>			/* for IFNAMSIZ and co... */
--#else	/* !HEADERS_KERNEL */
--/* Glibc systems headers are supposedly less problematic than kernel ones */
- #include <sys/socket.h>			/* for "struct sockaddr" et al	*/
- #include <net/if.h>			/* for IFNAMSIZ and co... */
--#endif	/* !HEADERS_KERNEL */
- 
- /* Private copy of Wireless extensions (in this directoty) */
- #include "wireless.h"
 --- wireless_tools.28/wireless.19.h.orig	2006-03-20 00:02:13.000000000 +0100
 +++ wireless_tools.28/wireless.19.h	2006-03-20 00:04:46.000000000 +0100
 @@ -641,7 +641,7 @@
