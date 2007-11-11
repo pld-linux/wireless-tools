@@ -3,7 +3,7 @@ Summary(pl.UTF-8):	Narzędzia do konfiguracji sieci bezprzewodowej
 Summary(pt_BR.UTF-8):	Ferramentas para redes sem fio
 Name:		wireless-tools
 Version:	29
-Release:	1
+Release:	2
 Epoch:		1
 License:	GPL v2
 Group:		Networking/Admin
