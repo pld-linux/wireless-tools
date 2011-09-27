@@ -3,7 +3,7 @@ Summary(pl.UTF-8):	Narzędzia do konfiguracji sieci bezprzewodowej
 Summary(pt_BR.UTF-8):	Ferramentas para redes sem fio
 Name:		wireless-tools
 Version:	29
-Release:	2
+Release:	3
 Epoch:		1
 License:	GPL v2
 Group:		Networking/Admin
@@ -88,13 +88,18 @@ sed -i -e 's#__user##g' iwlib.h wireless.22.h
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_sbindir},%{_libdir},%{_includedir},%{_mandir}/man8}
+install -d $RPM_BUILD_ROOT{%{_sbindir},/%{_lib},%{_libdir},%{_includedir},%{_mandir}/man8}
 
 %{__make} install install-dynamic install-static \
 	INSTALL_DIR=$RPM_BUILD_ROOT%{_sbindir} \
 	INSTALL_LIB=$RPM_BUILD_ROOT%{_libdir} \
 	INSTALL_INC=$RPM_BUILD_ROOT%{_includedir} \
 	INSTALL_MAN=$RPM_BUILD_ROOT%{_mandir}
+
+mv -f $RPM_BUILD_ROOT%{_libdir}/libiw.so.* $RPM_BUILD_ROOT/%{_lib}
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/libiw.so
+ln -sf /%{_lib}/$(cd $RPM_BUILD_ROOT/%{_lib}; echo libiw.so.*) \
+	$RPM_BUILD_ROOT%{_libdir}/libiw.so
 
 install -d $RPM_BUILD_ROOT%{_mandir}/{cs,fr}/man{5,7,8}
 install cs/*.5 $RPM_BUILD_ROOT%{_mandir}/cs/man5
@@ -120,7 +125,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -n libiw
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libiw.so.*
+%attr(755,root,root) /%{_lib}/libiw.so.*
 
 %files -n libiw-devel
 %defattr(644,root,root,755)
