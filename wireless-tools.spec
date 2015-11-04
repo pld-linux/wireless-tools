@@ -1,16 +1,17 @@
+%define	pre	pre9
 Summary:	Wireless ethernet configuration tools
 Summary(pl.UTF-8):	Narzędzia do konfiguracji sieci bezprzewodowej
 Summary(pt_BR.UTF-8):	Ferramentas para redes sem fio
 Name:		wireless-tools
-Version:	29
-Release:	4
+Version:	30
+Release:	0.%{pre}.1
 Epoch:		1
 License:	GPL v2
 Group:		Networking/Admin
-Source0:	http://www.hpl.hp.com/personal/Jean_Tourrilhes/Linux/wireless_tools.%{version}.tar.gz
-# Source0-md5:	e06c222e186f7cc013fd272d023710cb
-Patch0:		%{name}-llh.patch
-Patch1:		%{name}-optflags.patch
+Source0:	http://www.labs.hpe.com/personal/Jean_Tourrilhes/Linux/wireless_tools.%{version}.%{pre}.tar.gz
+# Source0-md5:	ca91ba7c7eff9bfff6926b1a34a4697d
+Patch0:		%{name}-optflags.patch
+Patch1:		%{name}-debian.patch
 URL:		http://www.hpl.hp.com/personal/Jean_Tourrilhes/Linux/Tools.html
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -75,16 +76,14 @@ Biblioteka rozszerzeń bezprzewodowych (biblioteka statyczna).
 %patch0 -p1
 %patch1 -p1
 
-sed -i -e 's#__user##g' iwlib.h wireless.22.h
-
 %build
 %{__make} \
 	CC="%{__cc}" \
-	OPTFLAGS="%{rpmcflags}"
+	OPTFLAGS="%{rpmcflags} %{rpmcppflags}"
 
 %{__make} libiw.a \
 	CC="%{__cc}" \
-	OPTFLAGS="%{rpmcflags}"
+	OPTFLAGS="%{rpmcflags} %{rpmcppflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -101,13 +100,8 @@ mv -f $RPM_BUILD_ROOT%{_libdir}/libiw.so.* $RPM_BUILD_ROOT/%{_lib}
 ln -sf /%{_lib}/$(cd $RPM_BUILD_ROOT/%{_lib}; echo libiw.so.*) \
 	$RPM_BUILD_ROOT%{_libdir}/libiw.so
 
-install -d $RPM_BUILD_ROOT%{_mandir}/{cs,fr}/man{5,7,8}
-install cs/*.5 $RPM_BUILD_ROOT%{_mandir}/cs/man5
-install cs/*.7 $RPM_BUILD_ROOT%{_mandir}/cs/man7
-install cs/*.8 $RPM_BUILD_ROOT%{_mandir}/cs/man8
-install fr/*.5 $RPM_BUILD_ROOT%{_mandir}/fr/man5
-install fr/*.7 $RPM_BUILD_ROOT%{_mandir}/fr/man7
-install fr/*.8 $RPM_BUILD_ROOT%{_mandir}/fr/man8
+rm -r $RPM_BUILD_ROOT%{_mandir}/fr.ISO*
+mv $RPM_BUILD_ROOT%{_mandir}/fr{.UTF-8,}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
