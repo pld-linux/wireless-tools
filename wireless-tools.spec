@@ -12,7 +12,7 @@ Source0:	http://www.labs.hpe.com/personal/Jean_Tourrilhes/Linux/wireless_tools.%
 # Source0-md5:	ca91ba7c7eff9bfff6926b1a34a4697d
 Patch0:		%{name}-optflags.patch
 Patch1:		%{name}-debian.patch
-URL:		http://www.hpl.hp.com/personal/Jean_Tourrilhes/Linux/Tools.html
+URL:		http://www.labs.hpe.com/personal/Jean_Tourrilhes/Linux/Tools.html
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_sbindir	/sbin
@@ -95,13 +95,13 @@ install -d $RPM_BUILD_ROOT{%{_sbindir},/%{_lib},%{_libdir},%{_includedir},%{_man
 	INSTALL_INC=$RPM_BUILD_ROOT%{_includedir} \
 	INSTALL_MAN=$RPM_BUILD_ROOT%{_mandir}
 
-mv -f $RPM_BUILD_ROOT%{_libdir}/libiw.so.* $RPM_BUILD_ROOT/%{_lib}
+%{__mv} $RPM_BUILD_ROOT%{_libdir}/libiw.so.* $RPM_BUILD_ROOT/%{_lib}
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/libiw.so
 ln -sf /%{_lib}/$(cd $RPM_BUILD_ROOT/%{_lib}; echo libiw.so.*) \
 	$RPM_BUILD_ROOT%{_libdir}/libiw.so
 
-rm -r $RPM_BUILD_ROOT%{_mandir}/fr.ISO*
-mv $RPM_BUILD_ROOT%{_mandir}/fr{.UTF-8,}
+%{__rm} -r $RPM_BUILD_ROOT%{_mandir}/fr.ISO*
+%{__mv} $RPM_BUILD_ROOT%{_mandir}/fr{.UTF-8,}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -111,9 +111,24 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc READ* INSTA* PCM*
-%attr(755,root,root) %{_sbindir}/*
-%{_mandir}/man[578]/*
+%doc CHANGELOG.h ESSID-BUG.txt HOTPLUG-UDEV.txt IFRENAME-VS-XXX.txt PCMCIA.txt README
+%lang(fr) %doc README.fr
+%attr(755,root,root) %{_sbindir}/ifrename
+%attr(755,root,root) %{_sbindir}/iwconfig
+%attr(755,root,root) %{_sbindir}/iwevent
+%attr(755,root,root) %{_sbindir}/iwgetid
+%attr(755,root,root) %{_sbindir}/iwlist
+%attr(755,root,root) %{_sbindir}/iwpriv
+%attr(755,root,root) %{_sbindir}/iwspy
+%{_mandir}/man5/iftab.5*
+%{_mandir}/man7/wireless.7*
+%{_mandir}/man8/ifrename.8*
+%{_mandir}/man8/iwconfig.8*
+%{_mandir}/man8/iwevent.8*
+%{_mandir}/man8/iwgetid.8*
+%{_mandir}/man8/iwlist.8*
+%{_mandir}/man8/iwpriv.8*
+%{_mandir}/man8/iwspy.8*
 %lang(cs) %{_mandir}/cs/man[578]/*
 %lang(fr) %{_mandir}/fr/man[578]/*
 
@@ -124,7 +139,8 @@ rm -rf $RPM_BUILD_ROOT
 %files -n libiw-devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libiw.so
-%{_includedir}/*.h
+%{_includedir}/iwlib.h
+%{_includedir}/wireless.h
 
 %files -n libiw-static
 %defattr(644,root,root,755)
