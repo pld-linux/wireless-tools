@@ -8,11 +8,11 @@ Release:	0.%{pre}.1
 Epoch:		1
 License:	GPL v2
 Group:		Networking/Admin
-Source0:	http://www.labs.hpe.com/personal/Jean_Tourrilhes/Linux/wireless_tools.%{version}.%{pre}.tar.gz
+Source0:	https://hewlettpackard.github.io/wireless-tools/wireless_tools.%{version}.%{pre}.tar.gz
 # Source0-md5:	ca91ba7c7eff9bfff6926b1a34a4697d
 Patch0:		%{name}-optflags.patch
 Patch1:		%{name}-debian.patch
-URL:		http://www.labs.hpe.com/personal/Jean_Tourrilhes/Linux/Tools.html
+URL:		https://hewlettpackard.github.io/wireless-tools/Tools.html
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_sbindir	/sbin
