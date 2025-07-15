@@ -73,8 +73,8 @@ Biblioteka rozszerzeń bezprzewodowych (biblioteka statyczna).
 
 %prep
 %setup -q -n wireless_tools.%{version}
-%patch0 -p1
-%patch1 -p1
+%patch -P0 -p1
+%patch -P1 -p1
 
 %build
 %{__make} \
